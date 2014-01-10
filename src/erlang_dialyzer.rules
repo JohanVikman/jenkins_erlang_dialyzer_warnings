@@ -1,0 +1,16 @@
+
+#Module:Function:Line shows all the errors
+error /[a-z]*:[0-9]*: /
+
+#This is something critical
+error /dialyzer: /
+
+#We want to show that there are something interesting here:
+info /Unknown functions:/
+info /done in/
+
+#These rules should catch the unknown functions
+warning /  [a-zA-Z_0-9]*:[a-zA-Z_0-9]*\/[0-9]*/
+warning /  '[a-zA-Z_0-9]*':[a-zA-Z_0-9]*\/[0-9]*/
+warning /  '[a-zA-Z_0-9]*':'[a-zA-Z_0-9]*'\/[0-9]*/
+warning /  [a-zA-Z_0-9]*:'[a-zA-Z_0-9]*'\/[0-9]*/
